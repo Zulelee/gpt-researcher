@@ -23,13 +23,14 @@ CFG = Config()
 
 
 class ResearchAgent:
-    def __init__(self, question, agent, agent_role_prompt, websocket=None):
+    def __init__(self, question, link, agent, agent_role_prompt, websocket=None):
         """ Initializes the research assistant with the given question.
         Args: question (str): The question to research
         Returns: None
         """
 
         self.question = question
+        self.link = link
         self.agent = agent
         self.agent_role_prompt = agent_role_prompt if agent_role_prompt else prompts.generate_agent_role_prompt(agent)
         self.visited_urls = set()
@@ -91,11 +92,11 @@ class ResearchAgent:
         return answer
 
     async def create_search_queries(self):
-        """ Creates the search queries for the given question.
+        """ Creates the search queries for the given .
         Args: None
         Returns: list[str]: The search queries for the given question
         """
-        result = await self.call_agent(prompts.generate_search_queries_prompt(self.question))
+        result = await self.call_agent(prompts.generate_search_queries_prompt(self.question, self.link))
         await self.stream_output(f"🧠 I will conduct my research based on the following queries: {result}...")
         return json.loads(result)
 

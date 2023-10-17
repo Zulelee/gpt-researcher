@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>GPT Researcher</title>
+    <title>Lead Explorer Tool</title>
     <meta name="description" content="A research assistant powered by GPT-4">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="./static/favicon.ico">
@@ -46,10 +46,10 @@
             Say Goodbye to <br>
             <span
                     style="background-image:linear-gradient(to right, #9867F0, #ED4E50); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Hours
-                    of Research</span>
+                    of Searching</span>
         </h1>
         <p class="max-w-5xl mx-auto text-gray-600 mt-8" style="font-size:20px">
-            Say Hello to GPT Researcher, your AI mate for rapid insights and comprehensive research. GPT Researcher
+            Say Hello to Lead Generation Tool, your AI mate for rapid insights and comprehensive research. Lead Generator
             takes care of everything from accurate source gathering to organization of research results - all in one
             platform designed to make your research process a breeze.
         </p>
@@ -62,14 +62,14 @@
                                                 alt="Auto Agent"></div>
     <form method="POST" class="mt-3" onsubmit="GPTResearcher.startResearch(); return false;">
         <div class="form-group">
-            <label for="task" class="agent-question">What would you like me to research next?</label>
+            <label for="task" class="agent-question">Enter Company Name:</label>
             <input type="text" id="task" name="task" class="form-control" required>
+            <label for="link" class="agent-question">Enter Company Link:</label>
+            <input type="text" id="link" name="link" class="form-control" required>
             <input type="radio" name="agent" id="autoAgent" value="Auto Agent" checked hidden>
         </div>
         <div class="form-group">
             <div class="row">
-
-
             </div>
             <button type="button" id="btnShowAuto" class="btn btn-secondary mt-3 btn-show">Auto Agent</button>
         </div>
@@ -77,8 +77,8 @@
             <label for="report_type" class="agent-question">What type of report would you like me to generate?</label>
             <select name="report_type" class="form-control" required>
                 <option value="research_report">Research Report</option>
-                <option value="resource_report">Resource Report</option>
-                <option value="outline_report">Outline Report</option>
+                <!-- <option value="resource_report">Resource Report</option>
+                <option value="outline_report">Outline Report</option> -->
             </select>
         </div>
         <input type="submit" value="Research" class="btn btn-primary button-padding">
@@ -86,7 +86,7 @@
 
     <div class="margin-div">
         <h2>Agent Output</h2>
-        <p class="mt-2 text-left" style="font-size: 0.8rem;">An agent tailored specifically to your task
+        <p class="mt-2 text-left" style="font-size: 0.8rem;">An Lead generation agent tailored specifically to your task
                         will be generated to provide the most precise and relevant research results.</p>
         <div id="output"></div>
     </div>

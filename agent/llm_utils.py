@@ -98,7 +98,7 @@ async def stream_response(model, messages, temperature, max_tokens, websocket):
     return response
 
 
-def choose_agent(task: str) -> dict:
+def choose_agent(task: str, link: str) -> dict:
     """Determines what agent should be used
     Args:
         task (str): The research question the user asked
@@ -111,7 +111,7 @@ def choose_agent(task: str) -> dict:
             model=CFG.smart_llm_model,
             messages=[
                 {"role": "system", "content": f"{auto_agent_instructions()}"},
-                {"role": "user", "content": f"task: {task}"}],
+                {"role": "user", "content": f"task: {task}, link: {link}"}],
             temperature=0,
         )
 
@@ -119,6 +119,6 @@ def choose_agent(task: str) -> dict:
     except Exception as e:
         print(f"{Fore.RED}Error in choose_agent: {e}{Style.RESET_ALL}")
         return {"agent": "Default Agent",
-                "agent_role_prompt": "You are an AI critical thinker research assistant. Your sole purpose is to write well written, critically acclaimed, objective and structured reports on given text."}
+                "agent_role_prompt": "You are an AI critical thinker lead generation assistant. Your sole purpose is to write well written, critically acclaimed, objective and structured reports on the given company name."}
 
 
