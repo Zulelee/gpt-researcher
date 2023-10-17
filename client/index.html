@@ -49,9 +49,7 @@
                     of Searching</span>
         </h1>
         <p class="max-w-5xl mx-auto text-gray-600 mt-8" style="font-size:20px">
-            Say Hello to Lead Generation Tool, your AI mate for rapid insights and comprehensive research. Lead Generator
-            takes care of everything from accurate source gathering to organization of research results - all in one
-            platform designed to make your research process a breeze.
+            Say Hello to Lead Generation Tool, your AI mate for rapid insights and comprehensive research.
         </p>
         <a href="#form" class="btn btn-primary">Get Started</a>
     </div>
@@ -64,7 +62,7 @@
         <div class="form-group">
             <label for="task" class="agent-question">Enter Company Name:</label>
             <input type="text" id="task" name="task" class="form-control" required>
-            <label for="link" class="agent-question">Enter Company Link:</label>
+            <label for="link" class="agent-question mt-3">Enter Company Link:</label>
             <input type="text" id="link" name="link" class="form-control" required>
             <input type="radio" name="agent" id="autoAgent" value="Auto Agent" checked hidden>
         </div>
@@ -74,8 +72,8 @@
             <button type="button" id="btnShowAuto" class="btn btn-secondary mt-3 btn-show">Auto Agent</button>
         </div>
         <div class="form-group">
-            <label for="report_type" class="agent-question">What type of report would you like me to generate?</label>
-            <select name="report_type" class="form-control" required>
+            <label for="report_type" class="agent-question">Generating PDF Report</label>
+            <select name="report_type" class="form-control" disabled>
                 <option value="research_report">Research Report</option>
                 <!-- <option value="resource_report">Resource Report</option>
                 <option value="outline_report">Outline Report</option> -->
@@ -101,10 +99,6 @@
     </div>
 </main>
 
-<footer>
-    <p>GPT Researcher &copy; 2023 | <a target="_blank" href="https://github.com/assafelovic/gpt-researcher">GitHub
-        Page</a></p>
-</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.1/showdown.min.js"></script>
 <script src="/site/scripts.js"></script>
