@@ -34,7 +34,7 @@ def generate_report_prompt(question, research_summary):
             " The report should focus on the answer to the topics provided, should be well structured, informative," \
            " in depth, with facts and numbers if available, a minimum of 1,200 words and with markdown syntax and apa format.\n "\
             "You MUST determine your own concrete and valid opinion based on the given information. Do NOT deter to general and meaningless conclusions.\n" \
-           f"Write all used source urls at the end of the report in apa format.\n " \
+           f"Write all used source urls at the end of the report in apa format.\n Make sure all the mentioned topics are covered in the report. \n" \
            f"Assume that the current date is {datetime.now().strftime('%B %d, %Y')}"
 
 def generate_search_queries_prompt(question, link):
