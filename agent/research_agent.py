@@ -23,14 +23,14 @@ CFG = Config()
 
 
 class ResearchAgent:
-    def __init__(self, question, link, agent, agent_role_prompt, websocket=None):
+    def __init__(self, question, location, agent, agent_role_prompt, websocket=None):
         """ Initializes the research assistant with the given question.
         Args: question (str): The question to research
         Returns: None
         """
 
         self.question = question
-        self.link = link
+        self.location = location
         self.agent = agent
         self.agent_role_prompt = agent_role_prompt if agent_role_prompt else prompts.generate_agent_role_prompt(agent)
         self.visited_urls = set()
@@ -96,7 +96,7 @@ class ResearchAgent:
         Args: None
         Returns: list[str]: The search queries for the given question
         """
-        result = await self.call_agent(prompts.generate_search_queries_prompt(self.question, self.link))
+        result = await self.call_agent(prompts.generate_search_queries_prompt(self.question, self.location))
         await self.stream_output(f"🧠 I will conduct my research based on the following queries: {result}...")
         return json.loads(result)
 
@@ -167,7 +167,7 @@ class ResearchAgent:
         Returns: str: The report for the given question
         """
         report_type_func = prompts.get_report_by_type(report_type)
-        await self.stream_output(f"✍️ Writing {report_type} for research task: {self.question}...")
+        await self.stream_output(f"✍️ Writing {report_type} for company: {self.question}...")
 
         answer = await self.call_agent(report_type_func(self.question, self.research_summary),
                                        stream=websocket is not None, websocket=websocket)

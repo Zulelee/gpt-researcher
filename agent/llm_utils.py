@@ -98,7 +98,7 @@ async def stream_response(model, messages, temperature, max_tokens, websocket):
     return response
 
 
-def choose_agent(task: str, link: str) -> dict:
+def choose_agent(task: str, location: str) -> dict:
     """Determines what agent should be used
     Args:
         task (str): The research question the user asked
@@ -111,7 +111,7 @@ def choose_agent(task: str, link: str) -> dict:
             model=CFG.smart_llm_model,
             messages=[
                 {"role": "system", "content": f"{auto_agent_instructions()}"},
-                {"role": "user", "content": f"task: {task}, link: {link}"}],
+                {"role": "user", "content": f"Company Name: {task}, Location of operations: {location}"}],
             temperature=0,
         )
 
